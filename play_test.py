@@ -64,7 +64,7 @@ def bet_for_tc(tc, base_bet, bankroll):
     Cannot bet more than bankroll
     """
     if tc <= 0:
-        bet = base_bet
+        bet = base_bet / (1 - int(tc))
     else:
         bet = base_bet * (1 + int(tc))
     bet = max(1, min(bet, bankroll))
@@ -109,7 +109,7 @@ while True:
     # Determine bet based on true count
     tc = counter.true_count
     bet = bet_for_tc(tc, BASE_BET, bankroll)
-    print(f"\n--- NEW HAND --- True count: {tc:.2f}, Bet: {bet}, Bankroll: {bankroll}")
+    print(f"\n--- NEW HAND --- True count: {tc:.2f}, Bet: {bet:.2f}, Bankroll: {bankroll}")
 
     # Show initial deal
     print("Dealer:", render_hand(round.dealer_hand, hide_second_card=True))
