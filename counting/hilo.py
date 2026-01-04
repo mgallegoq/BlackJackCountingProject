@@ -18,12 +18,12 @@ class HiLoCounter:
             Rank.TWO, Rank.THREE, Rank.FOUR,
             Rank.FIVE, Rank.SIX
         }:
-            return 1
+            return -1
         if card.rank in {
             Rank.TEN, Rank.JACK, Rank.QUEEN,
             Rank.KING, Rank.ACE
         }:
-            return -1
+            return 1
         return 0
 
     @property
